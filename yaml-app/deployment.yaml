@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: imc-deployment
+spec:
+  replicas: 15
+  selector:
+    matchLabels: 
+      app: imc-deployment
+  template:
+    metadata:
+      labels:
+        app: imc-deployment
+    spec:
+      containers:
+      - name: imc-deployment
+        image: italomarcelo/imc:v3
+        ports:
+        - containerPort: 5080
